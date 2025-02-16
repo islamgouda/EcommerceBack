@@ -53,13 +53,13 @@ namespace api.Controllers
             var Specification = new ProductWithTypesAndBrandSpecifications(productSpecParams);
             var products = await _ProductgenericRepository.ListAsync(Specification);
 
-
             var countspec = new ProductWithFilterForCountSpecification(productSpecParams);
             var totalItems = await _ProductgenericRepository.CountAsync(countspec);
             var data = _mapper.Map<IEnumerable<ProductToReturnDto>>(products);
             var returndata = new Pagination<ProductToReturnDto>(productSpecParams.PageIndex, productSpecParams.PageSize, totalItems, (IReadOnlyList<ProductToReturnDto>)data);
             return Ok(returndata);
         }
+
         [HttpGet("GetALLBrands")]
         public async Task<IActionResult> getALLBrands()
         {
@@ -67,6 +67,7 @@ namespace api.Controllers
             //await _productRepository.GetAllBrandsAsync();
             return Ok(brands);
         }
+
         [HttpGet("GetALLTypes")]
         public async Task<IActionResult> getALLTypes()
         {

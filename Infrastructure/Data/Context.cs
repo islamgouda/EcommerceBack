@@ -50,5 +50,7 @@ namespace Infrastructure.Data
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductBrand> ProductBrands { get; set; }
         public DbSet<Productype> ProductTypes { get; set; }
+        public DbSet<CustomerBasket> CustomerBaskets {  get; set; }
+        public DbSet<BasketItems> BasketItems { get; set; }
     }
 }
